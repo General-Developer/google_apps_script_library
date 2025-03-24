@@ -45,3 +45,9 @@ flutter:
 project:
   type: ''
   is_use_direct_package: true
+  is_private: false
+  developers:
+    - username: ''
+      note: ''
+      social_medias:
+        - 'https://github.com'

@@ -37,3 +37,9 @@ dependency_overrides:
 project:
   type: 'library'
   is_use_direct_package: true
+  is_private: false
+  developers:
+    - username: 'azkadev'
+      note: ''
+      social_medias:
+        - 'https://github.com/azkadev'
