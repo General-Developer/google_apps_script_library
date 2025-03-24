@@ -1,6 +1,6 @@
 # Google Apps Script Library
  
-**Google Apps Script Library** Is library Machine Learning
+**Google Apps Script Library** It is a library that allows you to run dart programs in Google App Script https://script.google.com
 
 [![](https://raw.githubusercontent.com/globalcorporation/.github/main/.github/logo/powered.png)](https://www.youtube.com/@Global_Corporation)
 
@@ -36,13 +36,13 @@
 1. **Dart**
 
 ```bash
-dart pub add google_apps_script_library_dart
+
 ```
 
 2. **Flutter**
 
 ```bash
-flutter pub add google_apps_script_library_flutter
+
 ```
 
 ## 🚀️ Quick Start
