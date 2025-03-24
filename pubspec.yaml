@@ -1,0 +1,39 @@
+name: 'google_apps_script_library_project'
+description: 'GGML Is Library machine learning in dart with special feature speed up inference model in cpu only or any gpu'
+version: '0.0.0'
+repository: 'https://github.com/General-Developer/google_apps_script_library'
+homepage: 'https://www.youtube.com/@general_dev'
+issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
+documentation: 'https://www.youtube.com/@general_dev'
+funding:
+  - 'https://github.com/sponsors/General-Developer'
+  - 'https://github.com/sponsors/azkadev'
+  - 'https://github.com/sponsors/generalfoss'
+  - 'https://github.com/sponsors/general-developer'
+platforms:
+  android: null
+  ios: null
+  linux: null
+  macos: null
+  web: null
+  windows: null
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+dependencies:
+  general_universe: '^0.0.0'
+  packagex: '^0.0.0'
+  path: '^1.9.0'
+  yaml: '^3.1.3'
+dev_dependencies:
+  lints: '^5.0.0'
+  test: 'any'
+dependency_overrides:
+  general_universe:
+    path: '../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
+  mime: '^2.0.0'
+  packagex:
+    path: '../../../galaxeus/app/general_developer_public_library_project/packages/packagex'
+  pointycastle: '^4.0.0'
+project:
+  type: 'library'
+  is_use_direct_package: true

@@ -1,0 +1,55 @@
+name: Build Tdlib Linux
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/build-tdlib-linux.yml'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+        
+    steps:
+      - name: Export Release Timestamp
+        run: echo "APP_VERSION=v$(date +'%Y.%m.%d.%H.%M.%S')" >> $GITHUB_ENV
+      - uses: actions/checkout@v3
+        with:
+          repository: tdlib/td
+      - name: Install Dependencies
+        continue-on-error: true
+        run: |
+          sudo apt update -y
+          sudo apt-get install -y make git zlib1g-dev libssl-dev gperf cmake clang libc++-dev libc++abi-dev ninja-build zip
+        shell: bash
+      - name: Compile Tdlib
+        continue-on-error: true
+        run: |
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release ..
+          cmake --build .
+        shell: bash
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        continue-on-error: true
+        with:
+          name: linux
+          path: |
+            build/tg_cli
+            build/libtdjson.*
+
+      - name: Publish Release
+        uses: marvinpinto/action-automatic-releases@latest
+        continue-on-error: true
+        with:
+          repo_token: "${{ github.token }}"
+          automatic_release_tag: "latest-tdlib-linux"
+          prerelease: false
+          title: "Release Tdlib Linux"
+          files: |
+            build/tg_cli
+            build/libtdjson.*
+            
