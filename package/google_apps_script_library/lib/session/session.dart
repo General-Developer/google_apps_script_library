@@ -32,14 +32,21 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
- 
+import 'package:google_apps_script_library/core/user/user.dart';
+import 'package:google_apps_script_library/package/package.dart';
 
+@JS("Session")
+@staticInterop
 
-export "content/content.dart";
-export "core/core.dart";
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+class Session {
+  @JS("getActiveUser")
 
-export "extensions/extensions.dart";
-export "session/session.dart";
-export "url_fetch_app/url_fetch_app.dart";
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  external static JSAny _getActiveUser();
 
-export "core.dart";
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static UserGas getActiveUser() {
+    return UserGas(raw:_getActiveUser().dartify());
+  }
+}
