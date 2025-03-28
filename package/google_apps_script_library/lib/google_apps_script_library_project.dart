@@ -32,3 +32,8 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */ 
+
+
+export "content/content.dart";
+export "core/core.dart";
+export "url_fetch_app/url_fetch_app.dart";
