@@ -58,12 +58,13 @@ class GoogleAppsScriptLibraryCli {
     process.stdout.listen((e) {
       stdout.add(e);
     });
-    
+
     return await process.exitCode;
   }
 
   Future<void> compile({
     required String filePath,
+    bool isDebug = true,
   }) async {
     final Directory directoryOutput = Directory(
       path.join(
@@ -87,9 +88,13 @@ class GoogleAppsScriptLibraryCli {
       arguments: [
         "compile",
         "js",
-        "-O2",
-        "--no-frequency-based-minification",
-        "--server-mode",
+        if (isDebug) ...[
+          ///
+        ] else ...[
+          "-O2",
+          "--no-frequency-based-minification",
+          "--server-mode",
+        ],
         filePath,
         "-o",
         "dart.gs",

@@ -46,9 +46,29 @@ void main(List<String> args) {
   final String telegram_token_bot = js_interop.globalContext.getProperty("telegram_token_bot".toJS).dartify() as String;
   // print("dart: ${Session.getActiveUser().getUsername()}");
   try {
-    print("object: ${LanguageApp.translate("hai kamu", "id", "en", {})}");
+    print("properties");
+
+    final PropertiesServiceProperties propertiesServiceProperties = PropertiesService.getScriptProperties();
+    print(propertiesServiceProperties.toMap());
+    {
+      print("keys: ${propertiesServiceProperties.getKeys()}");
+
+      print("getProperties: ${propertiesServiceProperties.getProperties()}");
+    }
+    {
+      final dynamic token = propertiesServiceProperties.getProperty("token");
+      print("token: ${token}");
+      if (token == null || (token is String && token.isEmpty)) {
+        print("add token");
+        propertiesServiceProperties.setProperty("token", "slebew: ${DateTime.now().toString()}");
+      } else {
+        print("delete token");
+        propertiesServiceProperties.deleteProperty("token");
+      }
+    }
   } catch (e) {
     print("dart crash");
+    print(e);
   }
   googleAppsScriptEventTriggers.ensureInitialized(
     doGet: (update) {

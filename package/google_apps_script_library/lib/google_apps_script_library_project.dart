@@ -42,6 +42,7 @@ export "extensions/extensions.dart";
 export "language_app/language_app.dart";
 export "script_app/script_app.dart";
 export "session/session.dart";
+export "properties_service/properties_service.dart";
 export "url_fetch_app/url_fetch_app.dart";
 
 export "core.dart";
