@@ -214,3 +214,43 @@ extension JSAnyUtilityExtension on JSAny? {
   // consistency.
   external Object? dartify();
 }
+ 
+
+/// A JavaScript [`Function`](https://tc39.es/ecma262/#sec-function-objects)
+/// value.
+@JS('Function')
+extension type JSFunction._(JSAny _jsFunction) implements JSObject {}
+
+
+
+/// Conversions from [Function] to [JSExportedDartFunction].
+extension FunctionToJSExportedDartFunction on Function {
+  /// A callable JavaScript function that wraps this [Function].
+  ///
+  /// If the static type of the [Function] could not be determined or if
+  /// the static type uses types that are disallowed, the call will fail to
+  /// compile. See
+  /// https://dart.dev/interop/js-interop/js-types#requirements-on-external-declarations-and-function-tojs
+  /// for more details on what types are allowed.
+  ///
+  /// The max number of arguments that are passed to this [Function] from the
+  /// wrapper JavaScript function is determined by this [Function]'s static
+  /// type. Any extra arguments passed to the JavaScript function after the max
+  /// number of arguments are discarded like they are with regular JavaScript
+  /// functions.
+  ///
+  /// Calling this on the same [Function] again will always result in a new
+  /// JavaScript function.
+  external dynamic get toJS;
+
+  /// A callable JavaScript function that wraps this [Function] and captures the
+  /// `this` value when called.
+  ///
+  /// Identical to [toJS], except the resulting [JSExportedDartFunction] will
+  /// pass `this` from JavaScript as the first argument to the converted
+  /// [Function]. Any [Function] that is converted with this member should take
+  /// in an extra parameter at the beginning of the parameter list to handle
+  /// this.
+  // @Since('3.6')
+  external dynamic get toJSCaptureThis;
+}

@@ -41,9 +41,10 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 // ignore_for_file: public_member_api_docs, invalid_runtime_check_with_js_interop_types
 
-import 'dart:js_interop';
+// import 'dart:js_interop';
 
 import 'package:google_apps_script_library/core/http/http.dart';
+import 'package:google_apps_script_library/package/js_interop/js_interop.dart';
 
 // import 'package:google_apps_script_library/package/js_interop/js_interop.dart';
 

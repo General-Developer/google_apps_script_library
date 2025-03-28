@@ -51,36 +51,28 @@ class HTTPRequestGas {
   String get queryString {
     return (toMap()["queryString"] as JSAny).dartify() as String;
   }
- 
+
   Map get parameter {
     return (toMap()["parameter"] as JSAny).dartify() as Map;
   }
+
   Map get parameters {
     return (toMap()["parameters"] as JSAny).dartify() as Map;
   }
 
-
   int get contentLength {
     return (toMap()["contentLength"] as JSAny).dartify() as int;
   }
- 
-  
+
   HTTPRequestPostDataGas get postData {
     return HTTPRequestPostDataGas(raw: (toMap()["postData"] as JSAny).dartify());
   }
- 
- 
- 
- 
- 
+
   @override
   String toString() {
     return toMap().toString();
   }
 }
-
-
-
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class HTTPRequestPostDataGas {
@@ -95,26 +87,25 @@ class HTTPRequestPostDataGas {
   Map toMap() {
     return (raw as Map);
   }
+
   int get length {
     return (toMap()["length"] as JSAny).dartify() as int;
   }
- 
- 
 
   String get type {
     return (toMap()["type"] as JSAny).dartify() as String;
   }
- 
+
   String get contents {
     return (toMap()["contents"] as JSAny).dartify() as String;
   }
+
   String get name {
     return (toMap()["name"] as JSAny).dartify() as String;
   }
- 
+
   @override
   String toString() {
     return toMap().toString();
   }
 }
-
