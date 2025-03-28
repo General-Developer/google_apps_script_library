@@ -1,0 +1,190 @@
+    "google_apps_script_library": DartPubspecDependenciesData(
+    version: "^0.0.10",
+    isCreatedByMe: true,
+    isCanUsePatch: false,
+    isForceUse: false,
+    isPrivateLibrary: false,
+    relativePath: () {
+      if (Dart.isAndroid) {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "google_apps_script_library",
+
+          ),
+          from: from,
+        );
+      } else if (Dart.isLinux) {
+
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "google_apps_script_library",
+
+          ),
+          from: from,
+        );
+      } else if (Dart.isMacOS) {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "google_apps_script_library",
+
+          ),
+          from: from,
+        );
+      } else if (Dart.isIOS) {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "google_apps_script_library",
+
+          ),
+          from: from,
+        );
+      } else if (Dart.isWindows) {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "google_apps_script_library",
+
+          ),
+          from: from,
+        );
+      } else {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "google_apps_script_library",
+
+          ),
+          from: from,
+        );
+      }
+    }(),
+  ),
+    "telegram_gas": DartPubspecDependenciesData(
+    version: "^1.0.0",
+    isCreatedByMe: true,
+    isCanUsePatch: false,
+    isForceUse: false,
+    isPrivateLibrary: false,
+    relativePath: () {
+      if (Dart.isAndroid) {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "telegram_gas",
+
+          ),
+          from: from,
+        );
+      } else if (Dart.isLinux) {
+
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "telegram_gas",
+
+          ),
+          from: from,
+        );
+      } else if (Dart.isMacOS) {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "telegram_gas",
+
+          ),
+          from: from,
+        );
+      } else if (Dart.isIOS) {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "telegram_gas",
+
+          ),
+          from: from,
+        );
+      } else if (Dart.isWindows) {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "telegram_gas",
+
+          ),
+          from: from,
+        );
+      } else {
+        return path.relative(
+          path.join(
+                "${Dart.home_directory.path}",
+    "Documents",
+    "github",
+    "general-developer",
+    "google_apps_script_library",
+    "package",
+    "telegram_gas",
+
+          ),
+          from: from,
+        );
+      }
+    }(),
+  ),

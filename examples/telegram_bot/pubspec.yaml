@@ -1,0 +1,32 @@
+name: 'telegram_bot'
+description: 'A sample command-line application.'
+version: '1.0.0'
+publish_to: 'none'
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+dependencies:
+  general_universe: '^0.0.0'
+  google_apps_script_library: '^0.0.10'
+  telegram_gas: '^1.0.0'
+dev_dependencies:
+  lints: '^5.0.0'
+  test: 'any'
+project:
+  type: ''
+  is_use_direct_package: true
+  is_private: false
+  developers:
+    - username: ''
+      note: ''
+      social_medias:
+        - 'https://github.com'
+dependency_overrides:
+  general_universe:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
+  google_apps_script_library:
+    path: '../../package/google_apps_script_library'
+  mime: '^2.0.0'
+  pointycastle: '^4.0.0'
+  telegram_gas:
+    path: '../../package/telegram_gas'
+funding: []

@@ -25,7 +25,10 @@
 ## ❔️ Fun Fact
 
 **This library 100%** use on every my create project (**App, Server, Bot, Userbot**)
- 
+
+- Kenapa semua library yang anda buat tidak support google apps script secara native?
+karena google apps script gila, google apps script aslinya semua function berjalan secara sync, sedangkan library yang kami buat rata rata async jadi perlu rewrite ulang dengan nama baru
+
 ## 📈️ Proggres
  
 - **10-02-2025**

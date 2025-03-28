@@ -32,61 +32,55 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-import 'package:google_apps_script_library/cli/file/core.dart';
+import 'dart:convert';
 
-List<GoogleAppsScriptFile> gasFiles() {
-  return [
-    GoogleAppsScriptFile(
-      fileName: "Kode.gs",
-      content: """
+import 'package:google_apps_script_library/google_apps_script_library_project.dart';
 
+class TelegramGas {
+  TelegramGas();
 
-if (typeof globalThis.self != "object") {
-  if (typeof window == "object") {
-    globalThis.self = window.self;
-  } else {
-    globalThis.self = this;
-  }
-}
+  Map invokeRaw({
+    required Map parameters,
+    required String token,
+  }) {
+    final String url = Uri.parse(
+      "https://api.telegram.org",
+    ).replace(pathSegments: [
+      "bot${token}",
+      parameters["@type"],
+    ]).toString();
+    final response = UrlFetchApp.fetch(
+      url,
+      {
+        "method": 'POST',
+        "contentType": 'application/json',
+        "payload": json.encode(
+          parameters,
+        )
+      },
+    );
+    final Map body = json.decode(response.getContentText());
 
-function setTimeout(callback, delay = 0, ...params) {
-  if (typeof delay != "number") {
-    delay = 0;
-  }
-  if (delay < 1) {
-    delay = 0;
-  }
-  if (delay != 0) { 
-    Utilities.sleep(delay); // Menunggu sesuai delay yang diberikan
-  }
-  callback(...params); // Memanggil fungsi setelah delay
-}
-
-this.globalThis = globalThis;
-"""
-          .trim(),
-    ),
-    GoogleAppsScriptFile(
-      fileName: "triggers.gs",
-      content: """
-function doGet(e) { 
-  if (globalThis.self.dartGoogleAppsScriptEventTriggersDoGet) {
-    return globalThis.self.dartGoogleAppsScriptEventTriggersDoGet(e);
+    return body;
   }
 
-  return ContentService.createTextOutput("Trigger: dartGoogleAppsScriptEventTriggersDoGet Not Found");
-}
-
-function doPost(e) { 
-
-  if (globalThis.self.dartGoogleAppsScriptEventTriggersDoPost) {
-    return globalThis.self.dartGoogleAppsScriptEventTriggersDoPost(e);
+  Map invoke({
+    required Map parameters,
+    required String token,
+  }) {
+    return invokeRaw(
+      parameters: parameters,
+      token: token,
+    );
   }
 
-  return ContentService.createTextOutput("Trigger: dartGoogleAppsScriptEventTriggersDoPost Not Found");
-}
-"""
-          .trim(),
-    ),
-  ];
+  Map request({
+    required Map parameters,
+    required String token,
+  }) {
+    return invoke(
+      parameters: parameters,
+      token: token,
+    );
+  }
 }
