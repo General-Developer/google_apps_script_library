@@ -39,21 +39,23 @@ class UrlFetchApp {
   @JS("fetchAll")
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  external static JSObject _fetchAll(
+  external static JSAny _fetchAll(
     JSAny? url,
   );
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static Object? fetchAll(
+  static List<HTTPResponseGas> fetchAll(
     List<String> urls,
   ) {
-    return _fetchAll(urls.jsify()).dartify();
+    return (_fetchAll(urls.jsify()).dartify() as List).map((e) {
+      return HTTPResponseGas(raw: e);
+    }).toList();
   }
 
   @JS("getRequest")
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  external static JSObject _getRequest(
+  external static JSAny _getRequest(
     JSAny? url,
     JSAny? options,
   );
