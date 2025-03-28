@@ -62,10 +62,20 @@ class UrlFetchApp {
     String url,
     Map? options,
   ) {
+    options ??= {};
+    if (options.containsKey("muteHttpExceptions")== false) {
+      options["muteHttpExceptions"] = true;
+    }
+    if (options.containsKey("validateHttpsCertificates")== false) {
+      options["validateHttpsCertificates"] = false;
+    }
+    if (options.containsKey("escaping") == false) {
+      options["escaping"] = false;
+    }
     return HTTPResponseGas(
       raw: _fetch(
         url.jsify(),
-        (options ?? {}).jsify(),
+        (options).jsify(),
       ).dartify(),
     );
   }

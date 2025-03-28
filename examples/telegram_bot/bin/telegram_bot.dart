@@ -33,43 +33,70 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 
-import 'dart:js_interop_unsafe';
+import 'dart:convert';
 
+import 'package:general_universe/extension/extension.dart';
 import 'package:google_apps_script_library/google_apps_script_library_project.dart';
 import 'package:telegram_gas/telegram_gas.dart';
-import "dart:js_interop" as js_interop;
 
 void main(List<String> args) {
   print("starting");
   GoogleAppsScriptEventTriggers googleAppsScriptEventTriggers = GoogleAppsScriptEventTriggers();
   final TelegramGas telegram = TelegramGas();
-  final String telegram_token_bot = js_interop.globalContext.getProperty("telegram_token_bot".toJS).dartify() as String;
-  // print("dart: ${Session.getActiveUser().getUsername()}");
-  try {
-    print("properties");
 
-    final PropertiesServiceProperties propertiesServiceProperties = PropertiesService.getScriptProperties();
-    print(propertiesServiceProperties.toMap());
-    {
-      print("keys: ${propertiesServiceProperties.getKeys()}");
+  final PropertiesServiceProperties propertiesServiceProperties = PropertiesService.getScriptProperties();
+  final Map telegramBotConfiguration = () {
+    try {
+      final value = propertiesServiceProperties.getProperty(
+        "telegram_bot_configuration",
+      );
+      return json.decode(value) as Map;
+    } catch (e) {}
+    return {};
+  }();
+  bool isFoundUpdate = false;
+  {
+    if (telegramBotConfiguration["telegram_token_bot"] is String == false) {
+      telegramBotConfiguration["telegram_token_bot"] = "";
+      isFoundUpdate = true;
+    }
 
-      print("getProperties: ${propertiesServiceProperties.getProperties()}");
+    if (telegramBotConfiguration["telegram_bot_webhook_url"] is String == false) {
+      telegramBotConfiguration["telegram_bot_webhook_url"] = "";
+      isFoundUpdate = true;
     }
-    {
-      final dynamic token = propertiesServiceProperties.getProperty("token");
-      print("token: ${token}");
-      if (token == null || (token is String && token.isEmpty)) {
-        print("add token");
-        propertiesServiceProperties.setProperty("token", "slebew: ${DateTime.now().toString()}");
-      } else {
-        print("delete token");
-        propertiesServiceProperties.deleteProperty("token");
-      }
+
+    if (telegramBotConfiguration["is_telegram_set_webhook"] is bool == false) {
+      telegramBotConfiguration["is_telegram_set_webhook"] = false;
+      isFoundUpdate = true;
     }
-  } catch (e) {
-    print("dart crash");
-    print(e);
+    if (telegramBotConfiguration["is_telegram_set_webhook"] == false) {
+      isFoundUpdate = true;
+    }
   }
+  final String telegramTokenBot = telegramBotConfiguration["telegram_token_bot"];
+  final String telegramBotWebhookUrl = telegramBotConfiguration["telegram_bot_webhook_url"];
+
+  if (telegramBotConfiguration["is_telegram_set_webhook"] != true) {
+    isFoundUpdate = true;
+    telegramBotConfiguration["is_telegram_set_webhook"] = true;
+    telegram.request(
+      parameters: {
+        "@type": "setWebhook",
+        "url": telegramBotWebhookUrl,
+      },
+      token: telegramBotWebhookUrl,
+    );
+  }
+  print("update: ${isFoundUpdate}");
+
+  if (isFoundUpdate) {
+    propertiesServiceProperties.setProperty(
+      "telegram_bot_configuration",
+      telegramBotConfiguration.toStringifyPretty(),
+    );
+  }
+
   googleAppsScriptEventTriggers.ensureInitialized(
     doGet: (update) {
       return ContentService.createTextOutput(
@@ -81,9 +108,9 @@ void main(List<String> args) {
         Map body = update.bodyAsJson();
         if (body["message"] is Map) {
           final Map message = body["message"];
-          final Map msg_chat = message["chat"];
-          final int chat_id = msg_chat["id"];
-          String caption_or_text = () {
+          final Map msgChat = message["chat"];
+          final int chatId = msgChat["id"];
+          String captionOrText = () {
             if (message["text"] is String) {
               return message["text"];
             }
@@ -92,44 +119,49 @@ void main(List<String> args) {
             }
             return "";
           }();
-          if (caption_or_text.isNotEmpty) {
-            if (RegExp("^(/start)").hasMatch(caption_or_text)) {
+          if (captionOrText.isNotEmpty) {
+            if (RegExp("^(/start)").hasMatch(captionOrText)) {
               telegram.request(
                 parameters: {
                   "@type": "sendMessage",
-                  "chat_id": chat_id,
-                  "text": "Hai saya adalah robot",
+                  "chat_id": chatId,
+                  "text": """
+Hai saya adalah robot
+
+new update
+"""
+                      .trim(),
                 },
-                token: telegram_token_bot,
+                token: telegramTokenBot,
               );
             }
-            if (RegExp("^(/ping)").hasMatch(caption_or_text)) {
+            if (RegExp("^(/ping)").hasMatch(captionOrText)) {
               telegram.request(
                 parameters: {
                   "@type": "sendMessage",
-                  "chat_id": chat_id,
+                  "chat_id": chatId,
                   "text": "Pong",
                 },
-                token: telegram_token_bot,
+                token: telegramTokenBot,
               );
             }
 
-            if (RegExp("^(/test)").hasMatch(caption_or_text)) {
+            if (RegExp("^(/test)").hasMatch(captionOrText)) {
               telegram.request(
                 parameters: {
                   "@type": "sendMessage",
-                  "chat_id": chat_id,
+                  "chat_id": chatId,
                   "text": "Run Test",
                 },
-                token: telegram_token_bot,
+                token: telegramTokenBot,
               );
               telegram.request(
                 parameters: {
                   "@type": "sendMessage",
-                  "chat_id": chat_id,
+                  "chat_id": chatId,
                   "text": "Result:",
                 },
-                token: telegram_token_bot,
+                token: telegramTokenBot,
               );
             }
           }
