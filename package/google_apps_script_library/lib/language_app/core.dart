@@ -32,16 +32,37 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
- 
+import 'dart:js_interop';
 
+import 'package:google_apps_script_library/package/package.dart';
 
-export "content/content.dart";
-export "core/core.dart";
+// uncomplete
+@JS("LanguageApp")
+@staticInterop
 
-export "extensions/extensions.dart";
-export "language_app/language_app.dart";
-export "script_app/script_app.dart";
-export "session/session.dart";
-export "url_fetch_app/url_fetch_app.dart";
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+class LanguageApp {
+  @JS("translate")
+  // translate(text: string, sourceLanguage: string, targetLanguage: string, advancedArgs: Object): string
 
-export "core.dart";
+  external static JSString _translate(
+    JSAny? text,
+    JSAny? sourceLanguage,
+    JSAny? targetLanguage,
+    JSAny? advancedArgs,
+  );
+
+  static String translate(
+    String text,
+     String sourceLanguage,
+     String targetLanguage,
+     Map? advancedArgs,
+  ) {
+    return _translate(
+      text.jsify(),
+      sourceLanguage.jsify(),
+      targetLanguage.jsify(),
+      (advancedArgs ?? {}).jsify(),
+    ).toDart;
+  }
+}

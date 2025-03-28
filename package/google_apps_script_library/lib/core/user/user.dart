@@ -45,6 +45,21 @@ class UserGas {
     required this.raw,
   });
 
+  // {
+  // toString: function () { 
+  // [native code]
+  // }, 
+  // getEmail: function () { 
+  // [native code] 
+  // }, 
+  // getUserLoginId: function () {
+  //  [native code]
+  //  }, 
+  // getUsername: function () {
+  //  [native code] 
+  // }
+  // }
+
   Map toMap() {
     return (raw as Map);
   }
@@ -52,4 +67,10 @@ class UserGas {
   String getEmail() {
     return (toMap()["getEmail"]() as JSAny).dartify() as String;
   }
+
+  String getUsername() {
+    return (toMap()["getUsername"]() as JSAny).dartify() as String;
+  }
+
+
 }

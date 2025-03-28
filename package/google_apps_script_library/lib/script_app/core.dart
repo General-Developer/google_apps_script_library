@@ -32,16 +32,28 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
- 
+import 'dart:js_interop';
 
+import 'package:google_apps_script_library/package/package.dart';
 
-export "content/content.dart";
-export "core/core.dart";
+import 'services.dart';
+// uncomplete
+@JS("ScriptApp")
+@staticInterop
 
-export "extensions/extensions.dart";
-export "language_app/language_app.dart";
-export "script_app/script_app.dart";
-export "session/session.dart";
-export "url_fetch_app/url_fetch_app.dart";
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+class ScriptApp {
+  @JS("getService")
+  external static JSAny _getService();
 
-export "core.dart";
+  static ScriptAppServices getService() {
+    return ScriptAppServices(raw: _getService().dartify());
+  }
+
+  @JS("getScriptId")
+  external static JSString _getScriptId();
+
+  static String getScriptId() {
+    return _getScriptId().toDart;
+  }
+}

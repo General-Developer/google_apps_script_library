@@ -32,7 +32,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
- 
+
 import 'dart:js_interop_unsafe';
 
 import 'package:google_apps_script_library/google_apps_script_library_project.dart';
@@ -44,7 +44,12 @@ void main(List<String> args) {
   GoogleAppsScriptEventTriggers googleAppsScriptEventTriggers = GoogleAppsScriptEventTriggers();
   final TelegramGas telegram = TelegramGas();
   final String telegram_token_bot = js_interop.globalContext.getProperty("telegram_token_bot".toJS).dartify() as String;
-  
+  // print("dart: ${Session.getActiveUser().getUsername()}");
+  try {
+    print("object: ${LanguageApp.translate("hai kamu", "id", "en", {})}");
+  } catch (e) {
+    print("dart crash");
+  }
   googleAppsScriptEventTriggers.ensureInitialized(
     doGet: (update) {
       return ContentService.createTextOutput(
@@ -84,6 +89,25 @@ void main(List<String> args) {
                   "@type": "sendMessage",
                   "chat_id": chat_id,
                   "text": "Pong",
+                },
+                token: telegram_token_bot,
+              );
+            }
+
+            if (RegExp("^(/test)").hasMatch(caption_or_text)) {
+              telegram.request(
+                parameters: {
+                  "@type": "sendMessage",
+                  "chat_id": chat_id,
+                  "text": "Run Test",
+                },
+                token: telegram_token_bot,
+              );
+              telegram.request(
+                parameters: {
+                  "@type": "sendMessage",
+                  "chat_id": chat_id,
+                  "text": "Result:",
                 },
                 token: telegram_token_bot,
               );

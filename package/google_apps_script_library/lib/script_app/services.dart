@@ -32,16 +32,31 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+
+import 'package:google_apps_script_library/package/js_interop/js_interop.dart';
+
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+class ScriptAppServices {
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  final Object? raw;
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  ScriptAppServices({
+    required this.raw,
+  });
  
 
+  Map toMap() {
+    return (raw as Map);
+  }
 
-export "content/content.dart";
-export "core/core.dart";
+  String getUrl() {
+    return (toMap()["getUrl"]() as JSAny).dartify() as String;
+  }
+ 
 
-export "extensions/extensions.dart";
-export "language_app/language_app.dart";
-export "script_app/script_app.dart";
-export "session/session.dart";
-export "url_fetch_app/url_fetch_app.dart";
-
-export "core.dart";
+  bool isEnabled() {
+    return (toMap()["isEnabled"]() as JSAny).dartify() as bool;
+  }
+ 
+}

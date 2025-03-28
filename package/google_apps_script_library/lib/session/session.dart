@@ -47,6 +47,6 @@ class Session {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static UserGas getActiveUser() {
-    return UserGas(raw:_getActiveUser().dartify());
+    return UserGas(raw: _getActiveUser().dartify());
   }
 }

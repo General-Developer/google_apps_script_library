@@ -34,7 +34,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 // import 'package:general_universe/dart_universe/io_universe/core/_exports_in_browser.dart';
 
-import 'dart:io'; 
+import 'dart:io';
 import 'package:google_apps_script_library/cli/file/data.dart';
 import "package:path/path.dart" as path;
 
@@ -52,6 +52,13 @@ class GoogleAppsScriptLibraryCli {
       workingDirectory: workingDirectory,
     );
 
+    process.stderr.listen((e) {
+      stderr.add(e);
+    });
+    process.stdout.listen((e) {
+      stdout.add(e);
+    });
+    
     return await process.exitCode;
   }
 
