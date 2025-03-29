@@ -27,6 +27,8 @@ dependency_overrides:
     path: '../../package/google_apps_script_library'
   mime: '^2.0.0'
   pointycastle: '^4.0.0'
+  server_universe:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe'
   telegram_gas:
     path: '../../package/telegram_gas'
 funding: []

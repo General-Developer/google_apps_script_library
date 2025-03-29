@@ -20,9 +20,8 @@ topics:
   - 'general'
   - 'bot'
   - 'userbot'
-
-executables: 
-  google_apps_script_library: bin/google_apps_script_library.dart
+executables:
+  google_apps_script_library: 'bin/google_apps_script_library.dart'
 environment:
   sdk: '>=3.6.0 <4.0.0'
 dependencies:
