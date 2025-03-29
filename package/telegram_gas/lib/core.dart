@@ -60,6 +60,9 @@ class TelegramGas {
       },
     );
     final Map body = json.decode(response.getContentText());
+    if (response.getResponseCode() != 200) {
+      throw body;
+    }
 
     return body;
   }
