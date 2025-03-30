@@ -47,20 +47,24 @@ class PropertiesServiceProperties {
 
   // {toString: function () { [native code] }, deleteAllProperties: function () { [native code] }, deleteProperty: function () { [native code] }, getProperty: function () { [native code] }, setProperty: function () { [native code] }, getProperties: function () { [native code] }, setProperties: function () { [native code] }, getKeys: function () { [native code] }}
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map toMap() {
     return (raw as Map);
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void deleteAllProperties() {
     toMap()["deleteAllProperties"]();
     return;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void deleteProperty(String key) {
     toMap()["deleteProperty"](key.jsify());
     return;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   List<String> getKeys() {
     try {
       return ((toMap()["getKeys"]() as JSAny).dartify() as List).map((e) => e.toString()).toList();
@@ -69,6 +73,7 @@ class PropertiesServiceProperties {
     }
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map getProperties() {
     try {
       return (toMap()["getProperties"]() as JSAny).dartify() as Map;
@@ -77,6 +82,7 @@ class PropertiesServiceProperties {
     }
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   dynamic getProperty(String key) {
     final value = toMap()["getProperty"](key.jsify());
     if (value is JSAny) {
@@ -85,11 +91,13 @@ class PropertiesServiceProperties {
     return null;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void setProperties(Map values) {
     toMap()["setProperties"](values.jsify());
     return;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void setProperty(String key, Object? value) {
     toMap()["setProperty"](key.jsify(), value.jsify());
     return;

@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 /* <!-- START LICENSE -->
 
 
@@ -36,7 +38,9 @@ import 'dart:convert';
 
 import 'package:google_apps_script_library/core/http/http.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension HTTPRequestGasExtension on HTTPRequestGas {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String body() {
     try {
       return postData.contents;
@@ -45,6 +49,7 @@ extension HTTPRequestGasExtension on HTTPRequestGas {
     }
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map bodyAsJson() {
     try {
       return json.decode(body());

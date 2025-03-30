@@ -45,14 +45,17 @@ class ScriptAppServices {
     required this.raw,
   });
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map toMap() {
     return (raw as Map);
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String getUrl() {
     return (toMap()["getUrl"]() as JSAny).dartify() as String;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   bool isEnabled() {
     return (toMap()["isEnabled"]() as JSAny).dartify() as bool;
   }

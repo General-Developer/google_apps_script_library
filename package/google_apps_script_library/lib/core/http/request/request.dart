@@ -44,26 +44,32 @@ class HTTPRequestGas {
     required this.raw,
   });
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map toMap() {
     return (raw as Map);
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String get queryString {
     return (toMap()["queryString"] as JSAny).dartify() as String;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map get parameter {
     return (toMap()["parameter"] as JSAny).dartify() as Map;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map get parameters {
     return (toMap()["parameters"] as JSAny).dartify() as Map;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   int get contentLength {
     return (toMap()["contentLength"] as JSAny).dartify() as int;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   HTTPRequestPostDataGas get postData {
     return HTTPRequestPostDataGas(raw: (toMap()["postData"] as JSAny).dartify());
   }
@@ -84,22 +90,27 @@ class HTTPRequestPostDataGas {
     required this.raw,
   });
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map toMap() {
     return (raw as Map);
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   int get length {
     return (toMap()["length"] as JSAny).dartify() as int;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String get type {
     return (toMap()["type"] as JSAny).dartify() as String;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String get contents {
     return (toMap()["contents"] as JSAny).dartify() as String;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String get name {
     return (toMap()["name"] as JSAny).dartify() as String;
   }

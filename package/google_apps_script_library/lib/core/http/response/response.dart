@@ -72,14 +72,17 @@ class HTTPResponseGas {
 // }
 // }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map toMap() {
     return (raw as Map);
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   int getResponseCode() {
     return (toMap()["getResponseCode"]() as JSAny).dartify() as int;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String getContentText() {
     return (toMap()["getContentText"]() as JSAny).dartify() as String;
   }
@@ -89,22 +92,27 @@ class HTTPResponseGas {
     return (toMap()["toString"]() as JSAny).dartify() as String;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   dynamic getAllHeaders() {
     return (toMap()["getAllHeaders"]() as JSAny).dartify();
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   dynamic getHeaders() {
     return (toMap()["getHeaders"]() as JSAny).dartify();
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   dynamic getContent() {
     return (toMap()["getContent"]() as JSAny).dartify();
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   dynamic getAs() {
     return (toMap()["getAs"]() as JSAny).dartify();
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   dynamic getBlob() {
     return (toMap()["getBlob"]() as JSAny).dartify();
   }

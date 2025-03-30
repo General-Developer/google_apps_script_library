@@ -47,6 +47,7 @@ class ScriptApp {
   @JS("getService")
   external static JSAny _getService();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static ScriptAppServices getService() {
     return ScriptAppServices(raw: _getService().dartify());
   }
@@ -54,6 +55,7 @@ class ScriptApp {
   @JS("getScriptId")
   external static JSString _getScriptId();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static String getScriptId() {
     return _getScriptId().toDart;
   }

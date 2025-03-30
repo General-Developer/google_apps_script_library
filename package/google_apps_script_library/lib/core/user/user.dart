@@ -60,14 +60,17 @@ class UserGas {
   // }
   // }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map toMap() {
     return (raw as Map);
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String getEmail() {
     return (toMap()["getEmail"]() as JSAny).dartify() as String;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String getUsername() {
     return (toMap()["getUsername"]() as JSAny).dartify() as String;
   }

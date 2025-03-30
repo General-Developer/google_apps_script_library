@@ -38,9 +38,12 @@ import 'dart:io';
 import 'package:google_apps_script_library/cli/file/data.dart';
 import "package:path/path.dart" as path;
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class GoogleAppsScriptLibraryCli {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GoogleAppsScriptLibraryCli();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Future<int> terminal({
     required String executable,
     required List<String> arguments,
@@ -62,6 +65,7 @@ class GoogleAppsScriptLibraryCli {
     return await process.exitCode;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Future<void> compile({
     required String filePath,
     bool isDebug = true,

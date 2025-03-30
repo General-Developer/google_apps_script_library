@@ -2,6 +2,7 @@
 
 rm -rf temp
 mkdir -p temp
+
 dart compile js example/example.dart -o temp/main.js
 dart compile wasm example/example.dart -o temp/main.wasm
 dart compile exe example/example.dart -o temp/main.exe

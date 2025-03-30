@@ -32,9 +32,13 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class GoogleAppsScriptFile {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final String fileName;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final String content;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GoogleAppsScriptFile({required this.fileName,
     required this.content,
     

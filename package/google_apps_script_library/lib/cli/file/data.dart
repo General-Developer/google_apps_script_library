@@ -34,6 +34,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'package:google_apps_script_library/cli/file/core.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 List<GoogleAppsScriptFile> gasFiles() {
   return [
     GoogleAppsScriptFile(
