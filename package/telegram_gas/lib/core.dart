@@ -34,7 +34,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'dart:convert';
 
-import 'package:google_apps_script_library/google_apps_script_library_project.dart';
+import 'package:google_apps_script_library/google_apps_script_library.dart';
 
 class TelegramGas {
   TelegramGas();
