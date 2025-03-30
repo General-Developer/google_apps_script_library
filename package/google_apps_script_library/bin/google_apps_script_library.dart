@@ -32,13 +32,20 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+import 'package:general_universe/args/args.dart';
 import 'package:general_universe/dart_universe/io_universe/io_universe.dart';
 import 'package:google_apps_script_library/cli/core.dart';
 
-void main(List<String> args) async {
+void main(List<String> arguments) async {
+  final Args args = Args(arguments);
   final GoogleAppsScriptLibraryCli googleAppsScriptLibraryCli = GoogleAppsScriptLibraryCli();
   await googleAppsScriptLibraryCli.compile(
-    filePath: args.firstOrNull ?? "",
+    filePath: args.arguments.firstOrNull ?? "",
+    isBuildRelease: args.contains(
+      [
+        "--debug",
+      ],
+    ) == false,
   );
   exit(0);
 }

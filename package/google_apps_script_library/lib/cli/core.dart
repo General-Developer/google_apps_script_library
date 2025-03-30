@@ -68,7 +68,7 @@ class GoogleAppsScriptLibraryCli {
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Future<void> compile({
     required String filePath,
-    bool isDebug = true,
+    required bool isBuildRelease,
   }) async {
     final Directory directoryOutput = Directory(
       path.join(
@@ -92,9 +92,7 @@ class GoogleAppsScriptLibraryCli {
       arguments: [
         "compile",
         "js",
-        if (isDebug) ...[
-          ///
-        ] else ...[
+        if (isBuildRelease) ...[
           "-O2",
           "--no-frequency-based-minification",
           "--server-mode",
