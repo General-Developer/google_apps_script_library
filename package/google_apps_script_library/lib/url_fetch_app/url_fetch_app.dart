@@ -32,8 +32,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-// import 'dart:js_interop';
-
+ 
 // https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app
 // 26-maret-2025
 // fetch(url)	HTTPResponse	Makes a request to fetch a URL.

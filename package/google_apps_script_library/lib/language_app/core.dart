@@ -31,9 +31,7 @@ jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesu
 Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
 
 
-<!-- END LICENSE --> */
-import 'dart:js_interop';
-
+<!-- END LICENSE --> */ 
 import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
 // uncomplete
@@ -45,7 +43,7 @@ class LanguageApp {
   @JS("translate")
   // translate(text: string, sourceLanguage: string, targetLanguage: string, advancedArgs: Object): string
 
-  external static JSString _translate(
+  external static JSAny _translate(
     JSAny? text,
     JSAny? sourceLanguage,
     JSAny? targetLanguage,
@@ -64,6 +62,6 @@ class LanguageApp {
       sourceLanguage.jsify(),
       targetLanguage.jsify(),
       (advancedArgs ?? {}).jsify(),
-    ).toDart;
+    ).dartify() as String;
   }
 }

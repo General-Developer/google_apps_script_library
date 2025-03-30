@@ -32,7 +32,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-import 'dart:js_interop';
+// import 'dart:js_interop';
 
 import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
@@ -53,10 +53,10 @@ class ScriptApp {
   }
 
   @JS("getScriptId")
-  external static JSString _getScriptId();
+  external static JSAny _getScriptId();
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static String getScriptId() {
-    return _getScriptId().toDart;
+    return _getScriptId().dartify() as String;
   }
 }
