@@ -41,24 +41,32 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 // ignore_for_file: public_member_api_docs, invalid_runtime_check_with_js_interop_types
 
- 
 import 'package:google_apps_script_library/core/http/http.dart';
 import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
 // import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
+//
 @JS("dartGoogleAppsScriptEventTriggersDoGet")
 external set _dartGoogleAppsScriptEventTriggersDoGetFunction(JSFunction? onFunction);
-
 typedef GoogleAppsScriptEventTriggersDoGetJSFunction = JSAny? Function(JSAny update);
-
 typedef GoogleAppsScriptEventTriggersDoGetDartFunction = dynamic Function(HTTPRequestGas update);
+
+//
 
 @JS("dartGoogleAppsScriptEventTriggersDoPost")
 external set _dartGoogleAppsScriptEventTriggersDoPostFunction(JSAny? onFunction);
-
 typedef GoogleAppsScriptEventTriggersDoPostJSFunction = JSAny? Function(JSAny update);
 typedef GoogleAppsScriptEventTriggersDoPostDartFunction = dynamic Function(HTTPRequestGas update);
+//
+
+//
+@JS("dartGoogleAppsScriptEventTriggersTest")
+external set _dartGoogleAppsScriptEventTriggersTestFunction(JSFunction? onFunction);
+typedef GoogleAppsScriptEventTriggersTestJSFunction = JSAny? Function();
+typedef GoogleAppsScriptEventTriggersTestDartFunction = dynamic Function();
+
+//
 
 // https://developers.google.com/apps-script/guides/triggers
 class GoogleAppsScriptEventTriggers {
@@ -90,9 +98,23 @@ class GoogleAppsScriptEventTriggers {
     };
   }
 
+  GoogleAppsScriptEventTriggersTestJSFunction dartGoogleAppsScriptEventTriggersTestFunction({
+    required final GoogleAppsScriptEventTriggersTestDartFunction onTest,
+  }) {
+    return () {
+      final result = onTest();
+      //
+      if (result is JSAny) {
+        return result;
+      }
+      return result.jsify();
+    };
+  }
+
   void ensureInitialized({
     final GoogleAppsScriptEventTriggersDoGetDartFunction? doGet,
     final GoogleAppsScriptEventTriggersDoPostDartFunction? doPost,
+    final GoogleAppsScriptEventTriggersTestDartFunction? onTest,
   }) {
     if (doGet != null) {
       _dartGoogleAppsScriptEventTriggersDoGetFunction = dartGoogleAppsScriptEventTriggersDoGetFunction(
@@ -102,6 +124,11 @@ class GoogleAppsScriptEventTriggers {
     if (doPost != null) {
       _dartGoogleAppsScriptEventTriggersDoPostFunction = dartGoogleAppsScriptEventTriggersDoPostFunction(
         doPost: doPost,
+      ).toJS;
+    }
+    if (onTest != null) {
+      _dartGoogleAppsScriptEventTriggersTestFunction = dartGoogleAppsScriptEventTriggersTestFunction(
+        onTest: onTest,
       ).toJS;
     }
   }

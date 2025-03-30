@@ -1,0 +1,8 @@
+#!/bin/sh
+
+rm -rf temp
+mkdir -p temp
+
+dart compile js bin/telegram_bot.dart -o temp/main.js
+dart compile wasm bin/telegram_bot.dart -o temp/main.wasm
+dart compile exe bin/telegram_bot.dart -o temp/main.exe
