@@ -98,6 +98,17 @@ void main(List<String> args) {
   }
 
   googleAppsScriptEventTriggers.ensureInitialized(
+    onInvoke: (parameters) {
+      print("invoke start");
+      print(parameters);
+      print("invoke done");
+      return "";
+    },
+    onTest: () {
+      print("dart test start");
+      print("dart test done");
+      return "";
+    },
     doGet: (update) {
       return ContentService.createTextOutput(
         "response get",

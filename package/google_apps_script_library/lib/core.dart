@@ -51,7 +51,6 @@ import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 external set _dartGoogleAppsScriptEventTriggersDoGetFunction(JSFunction? onFunction);
 typedef GoogleAppsScriptEventTriggersDoGetJSFunction = JSAny? Function(JSAny update);
 typedef GoogleAppsScriptEventTriggersDoGetDartFunction = dynamic Function(HTTPRequestGas update);
-
 //
 
 @JS("dartGoogleAppsScriptEventTriggersDoPost")
@@ -66,6 +65,15 @@ external set _dartGoogleAppsScriptEventTriggersTestFunction(JSFunction? onFuncti
 typedef GoogleAppsScriptEventTriggersTestJSFunction = JSAny? Function();
 typedef GoogleAppsScriptEventTriggersTestDartFunction = dynamic Function();
 
+//
+
+//
+@JS("dartGoogleAppsScriptEventTriggersInvoke")
+external set _dartGoogleAppsScriptEventTriggersInvokeFunction(JSFunction? onFunction);
+typedef GoogleAppsScriptEventTriggersInvokeJSFunction = JSAny? Function(JSAny parameters);
+typedef GoogleAppsScriptEventTriggersInvokeDartFunction = dynamic Function(Object? parameters);
+
+//
 //
 
 // https://developers.google.com/apps-script/guides/triggers
@@ -111,10 +119,24 @@ class GoogleAppsScriptEventTriggers {
     };
   }
 
+  GoogleAppsScriptEventTriggersInvokeJSFunction dartGoogleAppsScriptEventTriggersInvokeFunction({
+    required final GoogleAppsScriptEventTriggersInvokeDartFunction onInvoke,
+  }) {
+    return (JSAny update) {
+      final result = onInvoke(update.dartify());
+      //
+      if (result is JSAny) {
+        return result;
+      }
+      return result.jsify();
+    };
+  }
+
   void ensureInitialized({
     final GoogleAppsScriptEventTriggersDoGetDartFunction? doGet,
     final GoogleAppsScriptEventTriggersDoPostDartFunction? doPost,
     final GoogleAppsScriptEventTriggersTestDartFunction? onTest,
+    final GoogleAppsScriptEventTriggersInvokeDartFunction? onInvoke,
   }) {
     if (doGet != null) {
       _dartGoogleAppsScriptEventTriggersDoGetFunction = dartGoogleAppsScriptEventTriggersDoGetFunction(
@@ -129,6 +151,11 @@ class GoogleAppsScriptEventTriggers {
     if (onTest != null) {
       _dartGoogleAppsScriptEventTriggersTestFunction = dartGoogleAppsScriptEventTriggersTestFunction(
         onTest: onTest,
+      ).toJS;
+    }
+    if (onInvoke != null) {
+      _dartGoogleAppsScriptEventTriggersInvokeFunction = dartGoogleAppsScriptEventTriggersInvokeFunction(
+        onInvoke: onInvoke,
       ).toJS;
     }
   }
