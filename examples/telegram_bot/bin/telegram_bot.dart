@@ -36,7 +36,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'dart:convert';
 
 import 'package:general_universe/extension/extension.dart';
-import 'package:google_apps_script_library/google_apps_script_library_project.dart';
+import 'package:google_apps_script_library/google_apps_script_library.dart';
 import 'package:telegram_gas/telegram_gas.dart';
 
 void main(List<String> args) {
@@ -128,7 +128,7 @@ void main(List<String> args) {
                   "text": """
 Hai saya adalah robot
 
-new update
+new 31-12-53
 """
                       .trim(),
                 },
@@ -155,11 +155,12 @@ new update
                 },
                 token: telegramTokenBot,
               );
+              final result = LanguageApp.translate("Hai kamu", "id", "en", {});
               telegram.request(
                 parameters: {
                   "@type": "sendMessage",
                   "chat_id": chatId,
-                  "text": "Result:",
+                  "text": "Result: ${result}",
                 },
                 token: telegramTokenBot,
               );

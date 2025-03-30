@@ -105,14 +105,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.6"
-  encrypt:
-    dependency: transitive
-    description:
-      name: encrypt
-      sha256: "62d9aa4670cc2a8798bab89b39fc71b6dfbacf615de6cf5001fb39f7e4a996a2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.0.3"
   ffi:
     dependency: transitive
     description:
@@ -145,14 +137,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
-  general_lib:
-    dependency: transitive
-    description:
-      name: general_lib
-      sha256: d576cf998e4827a92894ef78c02b7f03ab61342d69e91bab0cfc9fd4836a636c
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.71"
   general_universe:
     dependency: "direct main"
     description:
@@ -215,14 +199,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
-  io_universe:
-    dependency: transitive
-    description:
-      name: io_universe
-      sha256: e42dd887a33901505bf1db5c6653d936d9c6260f2367150fe90b019349406aad
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.8"
   js:
     dependency: transitive
     description:
@@ -344,13 +320,12 @@ packages:
     source: hosted
     version: "3.0.2"
   server_universe:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: server_universe
-      sha256: "3aaf0baffb0d87f46a66da1e4880a95ff76df33275e8e111286c1f65dcb14cc6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.38"
+      path: "../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe"
+      relative: true
+    source: path
+    version: "0.0.0"
   shelf:
     dependency: transitive
     description:

@@ -1,4 +1,4 @@
 #!/bin/sh
 
 
-dart run google_apps_script_library /home/galaxeus/Documents/github/general-developer/google_apps_script_library/examples/telegram_bot/bin/telegram_bot.dart
+dart run google_apps_script_library --file /home/galaxeus/Documents/github/general-developer/google_apps_script_library/examples/telegram_bot/bin/telegram_bot.dart
