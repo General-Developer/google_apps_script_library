@@ -33,7 +33,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 
-import 'package:google_apps_script_library/package/js_interop/js_interop.dart';
+import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class ScriptAppServices {
@@ -44,7 +44,6 @@ class ScriptAppServices {
   ScriptAppServices({
     required this.raw,
   });
- 
 
   Map toMap() {
     return (raw as Map);
@@ -53,10 +52,8 @@ class ScriptAppServices {
   String getUrl() {
     return (toMap()["getUrl"]() as JSAny).dartify() as String;
   }
- 
 
   bool isEnabled() {
     return (toMap()["isEnabled"]() as JSAny).dartify() as bool;
   }
- 
 }

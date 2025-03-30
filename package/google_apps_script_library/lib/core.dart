@@ -44,9 +44,9 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 // import 'dart:js_interop';
 
 import 'package:google_apps_script_library/core/http/http.dart';
-import 'package:google_apps_script_library/package/js_interop/js_interop.dart';
+import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
-// import 'package:google_apps_script_library/package/js_interop/js_interop.dart';
+// import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
 @JS("dartGoogleAppsScriptEventTriggersDoGet")
 external set _dartGoogleAppsScriptEventTriggersDoGetFunction(JSFunction? onFunction);

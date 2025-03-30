@@ -1,4 +1,4 @@
-import 'package:google_apps_script_library/package/js_interop/js_interop.dart';
+import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
 import 'properties.dart';
 

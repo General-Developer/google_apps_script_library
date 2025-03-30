@@ -42,7 +42,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 // getRequest(url)	Object	Returns the request that is made if the operation was invoked.
 // getRequest(url, params)	Object	Returns the request that is made if the operation were invoked.
 import 'package:google_apps_script_library/core/http/response/response.dart';
-import 'package:google_apps_script_library/package/package.dart';
+import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
 @JS("UrlFetchApp")
 @staticInterop
@@ -63,10 +63,10 @@ class UrlFetchApp {
     Map? options,
   ) {
     options ??= {};
-    if (options.containsKey("muteHttpExceptions")== false) {
+    if (options.containsKey("muteHttpExceptions") == false) {
       options["muteHttpExceptions"] = true;
     }
-    if (options.containsKey("validateHttpsCertificates")== false) {
+    if (options.containsKey("validateHttpsCertificates") == false) {
       options["validateHttpsCertificates"] = false;
     }
     if (options.containsKey("escaping") == false) {

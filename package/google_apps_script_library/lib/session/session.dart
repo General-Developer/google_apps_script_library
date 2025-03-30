@@ -33,7 +33,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 import 'package:google_apps_script_library/core/user/user.dart';
-import 'package:google_apps_script_library/package/package.dart';
+import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
 @JS("Session")
 @staticInterop

@@ -33,7 +33,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 
-import 'package:google_apps_script_library/package/js_interop/js_interop.dart';
+import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class UserGas {
@@ -46,17 +46,17 @@ class UserGas {
   });
 
   // {
-  // toString: function () { 
+  // toString: function () {
   // [native code]
-  // }, 
-  // getEmail: function () { 
-  // [native code] 
-  // }, 
+  // },
+  // getEmail: function () {
+  // [native code]
+  // },
   // getUserLoginId: function () {
   //  [native code]
-  //  }, 
+  //  },
   // getUsername: function () {
-  //  [native code] 
+  //  [native code]
   // }
   // }
 
@@ -71,6 +71,4 @@ class UserGas {
   String getUsername() {
     return (toMap()["getUsername"]() as JSAny).dartify() as String;
   }
-
-
 }
