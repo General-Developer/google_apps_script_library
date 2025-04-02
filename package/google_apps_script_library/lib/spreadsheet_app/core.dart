@@ -79,6 +79,7 @@ class SpreadsheetApp {
     _enableAllDataSourcesExecution();
     return;
   }
+
   @JS("enableBigQueryExecution")
   external static JSAny? _enableBigQueryExecution();
 
@@ -87,6 +88,7 @@ class SpreadsheetApp {
     _enableBigQueryExecution();
     return;
   }
+
   @JS("enableLookerExecution")
   external static JSAny? _enableLookerExecution();
 
@@ -95,6 +97,4 @@ class SpreadsheetApp {
     _enableLookerExecution();
     return;
   }
-
-
 }

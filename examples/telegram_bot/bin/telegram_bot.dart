@@ -109,6 +109,7 @@ void main(List<String> args) {
     onTest: () {
       print("dart test start");
       final String sheetName = "dart_beta";
+      SpreadsheetApp.enableAllDataSourcesExecution();
 
       final Spreadsheet spreadsheet = () {
         final Spreadsheet spreadsheetOpen = () {
@@ -119,7 +120,7 @@ void main(List<String> args) {
           final Spreadsheet newSpreadsheet = SpreadsheetApp.create(sheetName);
           propertiesServiceProperties.setProperty("sheet_url", newSpreadsheet.getUrl());
           return newSpreadsheet;
-        }(); 
+        }();
         final Spreadsheet? spreadsheetProcces = spreadsheetOpen.getSheetByName(sheetName);
         if (spreadsheetProcces == null) {
           return spreadsheetOpen.insertSheet(sheetName);
