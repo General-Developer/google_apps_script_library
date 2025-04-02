@@ -66,7 +66,6 @@ extension SpreadsheetExtension on Spreadsheet {
   }
 
 
-
   @JS("getLastColumn")
   external JSAny? _getLastColumn();
 

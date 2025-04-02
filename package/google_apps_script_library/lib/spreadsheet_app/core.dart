@@ -67,4 +67,34 @@ class SpreadsheetApp {
     return _create(spreadsheetName.jsify());
   }
 
+  // SpreadsheetApp.enableAllDataSourcesExecution();
+// SpreadsheetApp.enableBigQueryExecution();
+// SpreadsheetApp.enableLookerExecution();
+
+  @JS("enableAllDataSourcesExecution")
+  external static JSAny? _enableAllDataSourcesExecution();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static void enableAllDataSourcesExecution() {
+    _enableAllDataSourcesExecution();
+    return;
+  }
+  @JS("enableBigQueryExecution")
+  external static JSAny? _enableBigQueryExecution();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static void enableBigQueryExecution() {
+    _enableBigQueryExecution();
+    return;
+  }
+  @JS("enableLookerExecution")
+  external static JSAny? _enableLookerExecution();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static void enableLookerExecution() {
+    _enableLookerExecution();
+    return;
+  }
+
+
 }
