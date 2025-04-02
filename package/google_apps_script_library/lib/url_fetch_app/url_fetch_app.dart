@@ -74,7 +74,7 @@ class UrlFetchApp {
     return HTTPResponseGas(
       raw: _fetch(
         url.jsify(),
-        (options).jsify(),
+        options.jsify(),
       ).dartify(),
     );
   }

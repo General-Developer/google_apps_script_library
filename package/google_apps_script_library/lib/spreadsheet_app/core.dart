@@ -32,18 +32,22 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
- 
+// import 'dart:js_interop';
 
+import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
+import 'spreadsheet.dart';
 
-export "content/content.dart";
-export "core/core.dart";
+// uncomplete
+@JS("SpreadsheetApp")
+@staticInterop
 
-export "extensions/extensions.dart";
-export "language_app/language_app.dart";
-export "script_app/script_app.dart";
-export "session/session.dart";
-export "properties_service/properties_service.dart";
-export "spreadsheet_app/spreadsheet_app.dart";
-export "url_fetch_app/url_fetch_app.dart";
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+class SpreadsheetApp {
+  @JS("openById")
+  external static Spreadsheet _openById(JSAny? sheedId);
 
-export "core.dart";
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static Spreadsheet openById(String sheedId) {
+    return _openById(sheedId.jsify());
+  }
+}
