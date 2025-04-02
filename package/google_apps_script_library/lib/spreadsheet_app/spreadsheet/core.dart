@@ -4,41 +4,22 @@ import 'package:google_apps_script_library/spreadsheet_app/spreadsheet_app.dart'
 @JS("Spreadsheet")
 @staticInterop
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-class Spreadsheet {}
+class SpreadSheetBase {}
+
+@JS("Spreadsheet")
+@staticInterop
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-extension SpreadsheetExtension on Spreadsheet {
-  // var ada = sas.getSheetByName(table_name);
-  // if (ada == null) {
-  // sas.insertSheet(table_name);
+class SpreadSheet extends SpreadSheetBase {}
 
-  @JS("getSheetByName")
-  external Spreadsheet? _getSheetByName(String sheetName);
+@JS("Sheet")
+@staticInterop
 
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  Spreadsheet? getSheetByName(String sheetName) {
-    return _getSheetByName(sheetName);
-  }
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+class SpreadSheetSheet extends SpreadSheetBase {}
 
-  @JS("insertSheet")
-  external Spreadsheet _insertSheet(String sheetName);
-
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  Spreadsheet insertSheet(String sheetName) {
-    return _insertSheet(sheetName);
-  }
-
-  @JS("getRange")
-  external SpreadsheetRange _getRange(String sheetRange);
-
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  SpreadsheetRange getRange(String sheetRange) {
-    return _getRange(sheetRange);
-  }
-
-
-
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+extension SpreadSheetExtension on SpreadSheet {
   @JS("getId")
   external JSAny? _getId();
 
@@ -46,7 +27,6 @@ extension SpreadsheetExtension on Spreadsheet {
   String getId() {
     return _getId().dartify() as String;
   }
-
 
   @JS("getName")
   external JSAny? _getName();
@@ -56,7 +36,6 @@ extension SpreadsheetExtension on Spreadsheet {
     return _getName().dartify() as String;
   }
 
-
   @JS("getUrl")
   external JSAny? _getUrl();
 
@@ -64,7 +43,48 @@ extension SpreadsheetExtension on Spreadsheet {
   String getUrl() {
     return _getUrl().dartify() as String;
   }
+}
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+extension SpreadSheetBaseExtension on SpreadSheetBase { 
+
+  // var ada = sas.getSheetByName(table_name);
+  // if (ada == null) {
+  // sas.insertSheet(table_name);
+
+  @JS("getSheetByName")
+  external SpreadSheetSheet? _getSheetByName(String sheetName);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  SpreadSheetSheet? getSheetByName(String sheetName) {
+    return _getSheetByName(sheetName);
+  }
+
+  @JS("insertSheet")
+  external SpreadSheetSheet _insertSheet(String sheetName);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  SpreadSheetSheet insertSheet(String sheetName) {
+    return _insertSheet(sheetName);
+  }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+
+  SpreadSheetSheet getSheetByNameAutoCreateIfNotExist(final String fromSheetName) {
+    final SpreadSheetSheet? spreadsheetByName = getSheetByName(fromSheetName);
+    if (spreadsheetByName == null) {
+      return insertSheet(fromSheetName);
+    }
+    return spreadsheetByName;
+  }
+
+  @JS("getRange")
+  external SpreadsheetRange _getRange(String sheetRange);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  SpreadsheetRange getRange(String sheetRange) {
+    return _getRange(sheetRange);
+  }
 
   @JS("getLastColumn")
   external JSAny? _getLastColumn();
@@ -110,6 +130,7 @@ extension SpreadsheetExtension on Spreadsheet {
       startColumn.jsify(),
       numRows.jsify(),
       numColumns.jsify(),
-    ).dartify() as List).cast<List>();
+    ).dartify() as List)
+        .cast<List>();
   }
 }

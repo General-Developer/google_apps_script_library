@@ -44,26 +44,35 @@ import 'spreadsheet/spreadsheet.dart';
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class SpreadsheetApp {
   @JS("openById")
-  external static Spreadsheet _openById(JSAny? sheetId);
+  external static SpreadSheet _openById(JSAny? sheetId);
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static Spreadsheet openById(String sheetId) {
+  static SpreadSheet openById(String sheetId) {
     return _openById(sheetId.jsify());
   }
 
   @JS("openByUrl")
-  external static Spreadsheet _openByUrl(JSAny? sheetUrl);
+  external static SpreadSheet _openByUrl(JSAny? sheetUrl);
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static Spreadsheet openByUrl(String sheetUrl) {
+  static SpreadSheet openByUrl(String sheetUrl) {
     return _openByUrl(sheetUrl.jsify());
   }
 
+  static SpreadSheet openByUrlOrId({
+    required String sheetIdOrUrl,
+  }) {
+    if (RegExp("^(http(s)?://)", caseSensitive: false).hasMatch(sheetIdOrUrl)) {
+      return openByUrl(sheetIdOrUrl);
+    }
+    return openById(sheetIdOrUrl);
+  }
+
   @JS("create")
-  external static Spreadsheet _create(JSAny? spreadsheetName);
+  external static SpreadSheet _create(JSAny? spreadsheetName);
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static Spreadsheet create(String spreadsheetName) {
+  static SpreadSheet create(String spreadsheetName) {
     return _create(spreadsheetName.jsify());
   }
 
