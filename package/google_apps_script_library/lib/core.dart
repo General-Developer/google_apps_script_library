@@ -14,7 +14,7 @@ If you wan't edit you must add credit me (don't change)
 
 If this Software / Program / Source Code has you
 
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
+Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin request segera lapor ke sub)
 
 Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
 
@@ -49,14 +49,14 @@ import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 //
 @JS("dartGoogleAppsScriptEventTriggersDoGet")
 external set _dartGoogleAppsScriptEventTriggersDoGetFunction(JSFunction? onFunction);
-typedef GoogleAppsScriptEventTriggersDoGetJSFunction = JSAny? Function(JSAny update);
-typedef GoogleAppsScriptEventTriggersDoGetDartFunction = dynamic Function(HTTPRequestGas update);
+typedef GoogleAppsScriptEventTriggersDoGetJSFunction = JSAny? Function(JSAny request);
+typedef GoogleAppsScriptEventTriggersDoGetDartFunction = dynamic Function(HTTPRequestGas request);
 //
 
 @JS("dartGoogleAppsScriptEventTriggersDoPost")
 external set _dartGoogleAppsScriptEventTriggersDoPostFunction(JSAny? onFunction);
-typedef GoogleAppsScriptEventTriggersDoPostJSFunction = JSAny? Function(JSAny update);
-typedef GoogleAppsScriptEventTriggersDoPostDartFunction = dynamic Function(HTTPRequestGas update);
+typedef GoogleAppsScriptEventTriggersDoPostJSFunction = JSAny? Function(JSAny request);
+typedef GoogleAppsScriptEventTriggersDoPostDartFunction = dynamic Function(HTTPRequestGas request);
 //
 
 //
@@ -83,8 +83,8 @@ class GoogleAppsScriptEventTriggers {
   GoogleAppsScriptEventTriggersDoGetJSFunction dartGoogleAppsScriptEventTriggersDoGetFunction({
     required final GoogleAppsScriptEventTriggersDoGetDartFunction doGet,
   }) {
-    return (JSAny update) {
-      final result = doGet(HTTPRequestGas(raw: update.dartify()));
+    return (JSAny request) {
+      final result = doGet(HTTPRequestGas(raw: request.dartify()));
       //
       if (result is JSAny) {
         return result;
@@ -96,8 +96,8 @@ class GoogleAppsScriptEventTriggers {
   GoogleAppsScriptEventTriggersDoPostJSFunction dartGoogleAppsScriptEventTriggersDoPostFunction({
     required final GoogleAppsScriptEventTriggersDoPostDartFunction doPost,
   }) {
-    return (JSAny update) {
-      final result = doPost(HTTPRequestGas(raw: update.dartify()));
+    return (JSAny request) {
+      final result = doPost(HTTPRequestGas(raw: request.dartify()));
       //
       if (result is JSAny) {
         return result;
@@ -122,8 +122,8 @@ class GoogleAppsScriptEventTriggers {
   GoogleAppsScriptEventTriggersInvokeJSFunction dartGoogleAppsScriptEventTriggersInvokeFunction({
     required final GoogleAppsScriptEventTriggersInvokeDartFunction onInvoke,
   }) {
-    return (JSAny update) {
-      final result = onInvoke(update.dartify());
+    return (JSAny request) {
+      final result = onInvoke(request.dartify());
       //
       if (result is JSAny) {
         return result;

@@ -36,9 +36,12 @@ import 'dart:convert';
 
 import 'package:google_apps_script_library/google_apps_script_library.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class TelegramGas {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   TelegramGas();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map invokeRaw({
     required Map parameters,
     required String token,
@@ -67,6 +70,7 @@ class TelegramGas {
     return body;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map invoke({
     required Map parameters,
     required String token,
@@ -77,6 +81,7 @@ class TelegramGas {
     );
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Map request({
     required Map parameters,
     required String token,
