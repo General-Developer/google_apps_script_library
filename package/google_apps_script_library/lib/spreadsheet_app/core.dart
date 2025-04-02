@@ -44,18 +44,27 @@ import 'spreadsheet/spreadsheet.dart';
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class SpreadsheetApp {
   @JS("openById")
-  external static Spreadsheet _openById(JSAny? sheedId);
+  external static Spreadsheet _openById(JSAny? sheetId);
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static Spreadsheet openById(String sheedId) {
-    return _openById(sheedId.jsify());
+  static Spreadsheet openById(String sheetId) {
+    return _openById(sheetId.jsify());
   }
 
   @JS("openByUrl")
-  external static Spreadsheet _openByUrl(JSAny? sheedUrl);
+  external static Spreadsheet _openByUrl(JSAny? sheetUrl);
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static Spreadsheet openByUrl(String sheedUrl) {
-    return _openByUrl(sheedUrl.jsify());
+  static Spreadsheet openByUrl(String sheetUrl) {
+    return _openByUrl(sheetUrl.jsify());
   }
+
+  @JS("create")
+  external static Spreadsheet _create(JSAny? spreadsheetName);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static Spreadsheet create(String spreadsheetName) {
+    return _create(spreadsheetName.jsify());
+  }
+
 }

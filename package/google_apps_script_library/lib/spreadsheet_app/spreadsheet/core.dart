@@ -37,6 +37,36 @@ extension SpreadsheetExtension on Spreadsheet {
     return _getRange(sheetRange);
   }
 
+
+
+  @JS("getId")
+  external JSAny? _getId();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  String getId() {
+    return _getId().dartify() as String;
+  }
+
+
+  @JS("getName")
+  external JSAny? _getName();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  String getName() {
+    return _getName().dartify() as String;
+  }
+
+
+  @JS("getUrl")
+  external JSAny? _getUrl();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  String getUrl() {
+    return _getUrl().dartify() as String;
+  }
+
+
+
   @JS("getLastColumn")
   external JSAny? _getLastColumn();
 

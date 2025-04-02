@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 /* <!-- START LICENSE -->
 
 
@@ -108,13 +110,19 @@ void main(List<String> args) {
       print("dart test start");
       final String sheetName = "dart_beta";
 
-      final ss = SpreadsheetApp.openById(
-        "1kaSQq_56Hd9i5ndOJibzb-QEW4FNy1MyAuK8C5obBc4",
-      );
       final Spreadsheet spreadsheet = () {
-        final Spreadsheet? spreadsheetProcces = ss.getSheetByName(sheetName);
+        final Spreadsheet spreadsheetOpen = () {
+          final dynamic sheetUrl = propertiesServiceProperties.getProperty("sheet_url");
+          if (sheetUrl is String && sheetUrl.isNotEmpty) {
+            return SpreadsheetApp.openByUrl(sheetUrl);
+          }
+          final Spreadsheet newSpreadsheet = SpreadsheetApp.create(sheetName);
+          propertiesServiceProperties.setProperty("sheet_url", newSpreadsheet.getUrl());
+          return newSpreadsheet;
+        }(); 
+        final Spreadsheet? spreadsheetProcces = spreadsheetOpen.getSheetByName(sheetName);
         if (spreadsheetProcces == null) {
-          return ss.insertSheet(sheetName);
+          return spreadsheetOpen.insertSheet(sheetName);
         }
         return spreadsheetProcces;
       }();
