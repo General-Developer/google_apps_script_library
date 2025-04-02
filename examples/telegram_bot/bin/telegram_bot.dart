@@ -40,6 +40,7 @@ import 'dart:convert';
 import 'package:general_universe/extension/extension.dart';
 import 'package:google_apps_script_library/google_apps_script_library.dart';
 import 'package:telegram_gas/telegram_gas.dart';
+import 'package:general_universe/utils/sheet/spreadsheet.dart';
 
 void main(List<String> args) {
   print("starting");
@@ -139,15 +140,52 @@ void main(List<String> args) {
       }
       {
         print("spreadsheet.getRange(\"A2996:D2996\").setValues: start");
+        int totalRowLength = 10;
+        final String sheetRange = SpreadsheetGeneralUniverseUtils.createRange(
+          startColumn: 1,
+          endRow: totalRowLength,
+          totalLength: 2,
+        );
 
-        spreadsheet.getRange("A2996:D2996").setValues(
-          [
-            [
-              DateTime.now().toString(),
-              null,
-              "swldwp",
-              "felfo",
-            ]
+        {
+          final List<List> values = spreadsheet.getSheetValues(
+            2, // offset
+            1, // start row
+            1, // total column
+            totalRowLength, // total row
+          );
+          "getSheetValues: ${values.toStringifyPretty()}".printPretty();
+        }
+
+        final List values = (spreadsheet.getRange(sheetRange).getValues().first as List).toList();
+
+        "old: ${values.toStringifyPretty()}".printPretty();
+        {
+          if (values[1] is num == false) {
+            values[1] = 0;
+          }
+          int parseCount = (values[1] as num).toInt();
+          parseCount++;
+
+          values[1] = parseCount;
+        }
+
+        "new: ${values.toStringifyPretty()}".printPretty();
+        spreadsheet.getRange(sheetRange).setValues(
+          <List>[
+            if (values.length == totalRowLength) ...[
+              values,
+            ] else if (values.length > totalRowLength) ...[
+              values.take(totalRowLength).toList(),
+            ] else ...[
+              List.generate(totalRowLength, (index) {
+                if (values.length > index) {
+                  print("use old");
+                  return values[index];
+                }
+                return null;
+              }),
+            ],
           ],
         );
         print("spreadsheet.getRange(\"A2996:D2996\").setValues: done");

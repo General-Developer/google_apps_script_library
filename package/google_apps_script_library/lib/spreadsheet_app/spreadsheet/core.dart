@@ -99,17 +99,17 @@ extension SpreadsheetExtension on Spreadsheet {
   );
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  List getSheetValues(
+  List<List> getSheetValues(
     int startRow,
     int startColumn,
     int numRows,
     int numColumns,
   ) {
-    return _getSheetValues(
+    return (_getSheetValues(
       startRow.jsify(),
       startColumn.jsify(),
       numRows.jsify(),
       numColumns.jsify(),
-    ).dartify() as List;
+    ).dartify() as List).cast<List>();
   }
 }
