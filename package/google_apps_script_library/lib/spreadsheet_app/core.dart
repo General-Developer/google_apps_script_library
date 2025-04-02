@@ -35,7 +35,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 // import 'dart:js_interop';
 
 import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
-import 'spreadsheet.dart';
+import 'spreadsheet/spreadsheet.dart';
 
 // uncomplete
 @JS("SpreadsheetApp")
@@ -49,5 +49,13 @@ class SpreadsheetApp {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static Spreadsheet openById(String sheedId) {
     return _openById(sheedId.jsify());
+  }
+
+  @JS("openByUrl")
+  external static Spreadsheet _openByUrl(JSAny? sheedUrl);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static Spreadsheet openByUrl(String sheedUrl) {
+    return _openByUrl(sheedUrl.jsify());
   }
 }

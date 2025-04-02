@@ -1,2 +1,2 @@
 export "core.dart";
-export "spreadsheet.dart";
+export "spreadsheet/spreadsheet.dart"; 

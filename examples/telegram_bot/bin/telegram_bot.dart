@@ -106,6 +106,44 @@ void main(List<String> args) {
     },
     onTest: () {
       print("dart test start");
+      final String sheetName = "dart_beta";
+
+      final ss = SpreadsheetApp.openById(
+        "1kaSQq_56Hd9i5ndOJibzb-QEW4FNy1MyAuK8C5obBc4",
+      );
+      final Spreadsheet spreadsheet = () {
+        final Spreadsheet? spreadsheetProcces = ss.getSheetByName(sheetName);
+        if (spreadsheetProcces == null) {
+          return ss.insertSheet(sheetName);
+        }
+        return spreadsheetProcces;
+      }();
+      {
+        print("getLastColumn: start");
+        print(spreadsheet.getLastColumn());
+        print("getLastColumn: done");
+      }
+      {
+        print("getLastRow: start");
+        print(spreadsheet.getLastRow());
+        print("getLastRow: done");
+      }
+      {
+        print("spreadsheet.getRange(\"A2996:D2996\").setValues: start");
+
+        spreadsheet.getRange("A2996:D2996").setValues(
+          [
+            [
+              DateTime.now().toString(),
+              null,
+              "swldwp",
+              "felfo",
+            ]
+          ],
+        );
+        print("spreadsheet.getRange(\"A2996:D2996\").setValues: done");
+      }
+
       print("dart test done");
       return "";
     },

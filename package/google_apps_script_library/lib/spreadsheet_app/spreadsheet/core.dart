@@ -1,0 +1,86 @@
+import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
+import 'package:google_apps_script_library/spreadsheet_app/spreadsheet_app.dart';
+
+@JS("Spreadsheet")
+@staticInterop
+
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+class Spreadsheet {}
+
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+extension SpreadsheetExtension on Spreadsheet {
+  // var ada = sas.getSheetByName(table_name);
+  // if (ada == null) {
+  // sas.insertSheet(table_name);
+
+  @JS("getSheetByName")
+  external Spreadsheet? _getSheetByName(String sheetName);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  Spreadsheet? getSheetByName(String sheetName) {
+    return _getSheetByName(sheetName);
+  }
+
+  @JS("insertSheet")
+  external Spreadsheet _insertSheet(String sheetName);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  Spreadsheet insertSheet(String sheetName) {
+    return _insertSheet(sheetName);
+  }
+
+  @JS("getRange")
+  external SpreadsheetRange _getRange(String sheetRange);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  SpreadsheetRange getRange(String sheetRange) {
+    return _getRange(sheetRange);
+  }
+
+  @JS("getLastColumn")
+  external JSAny? _getLastColumn();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  int getLastColumn() {
+    return _getLastColumn().dartify() as int;
+  }
+
+  @JS("getLastRow")
+  external JSAny? _getLastRow();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  int getLastRow() {
+    return _getLastRow().dartify() as int;
+  }
+
+  @JS("appendRow")
+  external JSAny? _appendRow(JSAny? values);
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  void appendRow(List values) {
+    _appendRow(values.jsify());
+  }
+
+  @JS("getSheetValues")
+  external JSAny? _getSheetValues(
+    JSAny? startRow,
+    JSAny? startColumn,
+    JSAny? numRows,
+    JSAny? numColumns,
+  );
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  List getSheetValues(
+    int startRow,
+    int startColumn,
+    int numRows,
+    int numColumns,
+  ) {
+    return _getSheetValues(
+      startRow.jsify(),
+      startColumn.jsify(),
+      numRows.jsify(),
+      numColumns.jsify(),
+    ).dartify() as List;
+  }
+}
