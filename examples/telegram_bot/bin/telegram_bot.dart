@@ -110,19 +110,19 @@ void main(List<String> args) {
     onTest: () {
       print("dart test start");
       final String sheetName = "dart_beta";
-      SpreadsheetApp.enableAllDataSourcesExecution();
+      SpreadSheetApp.enableAllDataSourcesExecution();
 
-      final Spreadsheet spreadsheet = () {
-        final Spreadsheet spreadsheetOpen = () {
+      final SpreadSheetSheet spreadsheet = () {
+        final SpreadSheet spreadsheetOpen = () {
           final dynamic sheetUrl = propertiesServiceProperties.getProperty("sheet_url");
           if (sheetUrl is String && sheetUrl.isNotEmpty) {
-            return SpreadsheetApp.openByUrl(sheetUrl);
+            return SpreadSheetApp.openByUrl(sheetUrl);
           }
-          final Spreadsheet newSpreadsheet = SpreadsheetApp.create(sheetName);
+          final SpreadSheet newSpreadsheet = SpreadSheetApp.create(sheetName);
           propertiesServiceProperties.setProperty("sheet_url", newSpreadsheet.getUrl());
           return newSpreadsheet;
         }();
-        final Spreadsheet? spreadsheetProcces = spreadsheetOpen.getSheetByName(sheetName);
+        final SpreadSheetSheet? spreadsheetProcces = spreadsheetOpen.getSheetByName(sheetName);
         if (spreadsheetProcces == null) {
           return spreadsheetOpen.insertSheet(sheetName);
         }
