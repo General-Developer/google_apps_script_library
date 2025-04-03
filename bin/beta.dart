@@ -1,3 +1,4 @@
+import 'package:general_universe/general_universe.dart';
 import 'package:general_universe/utils/sheet/spreadsheet.dart';
 
 void main(List<String> args) {
@@ -9,7 +10,13 @@ void main(List<String> args) {
       totalLength: 2996,
     ),
   );
-
+  {
+    var (offset, length) = GeneralUniverseUtils.createOffset(
+      totalCount: 2999,
+      limitCount: 1000,
+    );
+    print(offset.first);
+  }
   int totalRowLength = 10;
   final String sheetRange = SpreadsheetGeneralUniverseUtils.createRange(
     startColumn: 1,
@@ -23,7 +30,7 @@ void main(List<String> args) {
     "felfo",
   ];
 
-  final datas =<List<String?>>[
+  final datas = <List<String?>>[
     if (values.length == totalRowLength) ...[
       values,
     ] else if (values.length > totalRowLength) ...[

@@ -42,7 +42,7 @@ import 'spreadsheet/spreadsheet.dart';
 @staticInterop
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-class SpreadsheetApp {
+class SpreadSheetApp {
   @JS("openById")
   external static SpreadSheet _openById(JSAny? sheetId);
 
