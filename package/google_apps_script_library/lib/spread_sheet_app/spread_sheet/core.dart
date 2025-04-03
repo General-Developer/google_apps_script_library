@@ -1,5 +1,5 @@
 import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
-import 'package:google_apps_script_library/spreadsheet_app/spreadsheet_app.dart';
+import 'package:google_apps_script_library/spread_sheet_app/spread_sheet_app.dart';
 
 @JS("Spreadsheet")
 @staticInterop

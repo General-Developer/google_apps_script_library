@@ -35,7 +35,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 // import 'dart:js_interop';
 
 import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
-import 'spreadsheet/spreadsheet.dart';
+import 'spread_sheet/spread_sheet.dart';
 
 // uncomplete
 @JS("SpreadsheetApp")
