@@ -42,6 +42,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 // ignore_for_file: public_member_api_docs, invalid_runtime_check_with_js_interop_types
 
 // import 'package:general_universe/dart_universe/js_interop/web.dart';
+ 
 import 'package:google_apps_script_library/core/http/http.dart';
 import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
@@ -76,6 +77,21 @@ typedef GoogleAppsScriptEventTriggersInvokeDartFunction = dynamic Function(Objec
 
 //
 //
+
+// void setTimeout(Function callback, [dynamic delay = 0, List<dynamic> params = const []]) {
+//   if (delay is int == false) {
+//     delay = 0;
+//   }
+//   if (delay < 1) {
+//     delay = 0;
+//   }
+
+//   if (delay != 0) {
+//     // Future.delayed(Duration(milliseconds: delay), () => Function.apply(callback, params));
+//     sleep(Duration(milliseconds: delay));
+//   }
+//   Function.apply(callback, params);
+// }
 
 // https://developers.google.com/apps-script/guides/triggers
 class GoogleAppsScriptEventTriggers {
@@ -140,9 +156,11 @@ class GoogleAppsScriptEventTriggers {
     final GoogleAppsScriptEventTriggersTestDartFunction? onTest,
     final GoogleAppsScriptEventTriggersInvokeDartFunction? onInvoke,
   }) {
+    if (isUseDirectGlobalContext){
+
+    }
     if (doGet != null) {
       final valueFunction = dartGoogleAppsScriptEventTriggersDoGetFunction(doGet: doGet).toJS;
-
       if (isUseDirectGlobalContext) {
         globalContext.setProperty("doGet".toJS, valueFunction);
       }

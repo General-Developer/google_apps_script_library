@@ -41,9 +41,9 @@ import 'package:general_universe/extension/extension.dart';
 import 'package:google_apps_script_library/google_apps_script_library.dart';
 import 'package:telegram_gas/telegram_gas.dart';
 import 'package:general_universe/utils/sheet/spreadsheet.dart';
-
+ 
 void main(List<String> args) {
-  print("starting");
+  print("starting"); 
   GoogleAppsScriptEventTriggers googleAppsScriptEventTriggers = GoogleAppsScriptEventTriggers();
   final TelegramGas telegram = TelegramGas();
 
