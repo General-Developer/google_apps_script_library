@@ -41,6 +41,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 // ignore_for_file: public_member_api_docs, invalid_runtime_check_with_js_interop_types
 
+// import 'package:general_universe/dart_universe/js_interop/web.dart';
 import 'package:google_apps_script_library/core/http/http.dart';
 import 'package:general_universe/dart_universe/js_interop/js_interop.dart';
 
@@ -133,20 +134,26 @@ class GoogleAppsScriptEventTriggers {
   }
 
   void ensureInitialized({
+    bool isUseDirectGlobalContext = false,
     final GoogleAppsScriptEventTriggersDoGetDartFunction? doGet,
     final GoogleAppsScriptEventTriggersDoPostDartFunction? doPost,
     final GoogleAppsScriptEventTriggersTestDartFunction? onTest,
     final GoogleAppsScriptEventTriggersInvokeDartFunction? onInvoke,
   }) {
     if (doGet != null) {
-      _dartGoogleAppsScriptEventTriggersDoGetFunction = dartGoogleAppsScriptEventTriggersDoGetFunction(
-        doGet: doGet,
-      ).toJS;
+      final valueFunction = dartGoogleAppsScriptEventTriggersDoGetFunction(doGet: doGet).toJS;
+
+      if (isUseDirectGlobalContext) {
+        globalContext.setProperty("doGet".toJS, valueFunction);
+      }
+      _dartGoogleAppsScriptEventTriggersDoGetFunction = valueFunction;
     }
     if (doPost != null) {
-      _dartGoogleAppsScriptEventTriggersDoPostFunction = dartGoogleAppsScriptEventTriggersDoPostFunction(
-        doPost: doPost,
-      ).toJS;
+      final valueFunction = dartGoogleAppsScriptEventTriggersDoPostFunction(doPost: doPost).toJS;
+      if (isUseDirectGlobalContext) {
+        globalContext.setProperty("doPost".toJS, valueFunction);
+      }
+      _dartGoogleAppsScriptEventTriggersDoPostFunction = valueFunction;
     }
     if (onTest != null) {
       _dartGoogleAppsScriptEventTriggersTestFunction = dartGoogleAppsScriptEventTriggersTestFunction(

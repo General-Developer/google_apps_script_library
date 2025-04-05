@@ -101,6 +101,7 @@ void main(List<String> args) {
   }
 
   googleAppsScriptEventTriggers.ensureInitialized(
+    isUseDirectGlobalContext: true,
     onInvoke: (parameters) {
       print("invoke start");
       print(parameters);
@@ -224,7 +225,7 @@ void main(List<String> args) {
                   "text": """
 Hai saya adalah robot
 
-new 31-12-53
+new 06-april-2025
 """
                       .trim(),
                 },
